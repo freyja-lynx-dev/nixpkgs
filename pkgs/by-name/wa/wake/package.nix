@@ -17,6 +17,10 @@
 let
   re2' = re2.overrideAttrs (oldAttrs: {
     version = "2022-02-01";
+    src = fetchurl {
+      url = "https://github.com/google/re2/archive/refs/tags/2022-02-01.tar.gz";
+      hash = "sha256-nB5qz9D+1x9AsCWnodq68+4uu3TWTO0fnuGwsB0i/Sc=";
+    };
   });
 in
 stdenv.mkDerivation (finalAttrs: {

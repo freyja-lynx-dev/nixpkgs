@@ -1093,6 +1093,13 @@
     githubId = 1078000;
     name = "Alejandro Sánchez Medina";
   };
+  alejo7797 = {
+    email = "alex@epelde.net";
+    matrix = "@alex:epelde.net";
+    github = "alejo7797";
+    githubId = 17302493;
+    name = "Alex Epelde";
+  };
   aleksana = {
     email = "me@aleksana.moe";
     github = "Aleksanaa";
@@ -4181,6 +4188,13 @@
     github = "candeira";
     githubId = 91694;
     name = "Javier Candeira";
+  };
+  caniko = {
+    email = "gpg@rotas.mozmail.com";
+    github = "caniko";
+    githubId = 29519599;
+    name = "Can H. Tartanoglu";
+    keys = [ { fingerprint = "DF95 1EC0 9B8F 8094 C616  5589 1D63 6EDE 97DC 0280"; } ];
   };
   canndrew = {
     email = "shum@canndrew.org";
@@ -23101,12 +23115,6 @@
     github = "schmittlauch";
     githubId = 1479555;
   };
-  schneefux = {
-    email = "schneefux+nixos_pkg@schneefux.xyz";
-    github = "schneefux";
-    githubId = 15379000;
-    name = "schneefux";
-  };
   schnow265 = {
     email = "thesnowbox@icloud.com";
     github = "schnow265";
@@ -26036,6 +26044,12 @@
     github = "tilpner";
     githubId = 4322055;
   };
+  timasoft = {
+    name = "Timofey Klester";
+    email = "tima.klester@yandex.ru";
+    github = "timasoft";
+    githubId = 74288993;
+  };
   timbertson = {
     email = "tim@gfxmonk.net";
     github = "timbertson";
@@ -27696,6 +27710,12 @@
     github = "wesnel";
     githubId = 43357387;
     keys = [ { fingerprint = "F844 80B2 0CA9 D6CC C7F5  2479 A776 D2AD 099E 8BC0"; } ];
+  };
+  wetrustinprize = {
+    email = "git@wetrustinprize.com";
+    github = "wetrustinprize";
+    githubId = 38386927;
+    name = "Peterson 'Prize' Adami Candido";
   };
   wexder = {
     email = "wexder19@gmail.com";

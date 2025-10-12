@@ -26,7 +26,7 @@
   which,
   openssl,
   gperf,
-  tinyxml2,
+  tinyxml,
   tinyxml-2,
   taglib,
   libssh,
@@ -35,7 +35,6 @@
   ncurses,
   spdlog,
   libxml2,
-  systemd,
   alsa-lib,
   libGLU,
   libGL,
@@ -300,7 +299,7 @@ stdenv.mkDerivation (
       libdrm
       openssl
       gperf
-      tinyxml2
+      tinyxml
       tinyxml-2
       taglib
       libssh
@@ -323,7 +322,6 @@ stdenv.mkDerivation (
       libvorbis
       flac
       libxslt
-      systemd
       lzo
       libcdio
       libmodplug
@@ -489,7 +487,6 @@ stdenv.mkDerivation (
             lib.makeLibraryPath (
               [
                 curl
-                systemd
                 libmad
                 libcec
                 libcec_platform

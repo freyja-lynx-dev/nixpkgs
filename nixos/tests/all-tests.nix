@@ -1277,6 +1277,7 @@ in
   radarr = runTest ./radarr.nix;
   radicale = runTest ./radicale.nix;
   radicle = runTest ./radicle.nix;
+  radicle-ci-broker = runTest ./radicle-ci-broker.nix;
   ragnarwm = runTestOn [ "x86_64-linux" "aarch64-linux" ] ./ragnarwm.nix;
   rasdaemon = runTest ./rasdaemon.nix;
   rathole = runTest ./rathole.nix;
@@ -1482,7 +1483,6 @@ in
   systemd-sysusers-immutable = runTest ./systemd-sysusers-immutable.nix;
   systemd-sysusers-mutable = runTest ./systemd-sysusers-mutable.nix;
   systemd-sysusers-password-option-override-ordering = runTest ./systemd-sysusers-password-option-override-ordering.nix;
-  systemd-timesyncd = runTest ./systemd-timesyncd.nix;
   systemd-timesyncd-nscd-dnssec = runTest ./systemd-timesyncd-nscd-dnssec.nix;
   systemd-user-linger = runTest ./systemd-user-linger.nix;
   systemd-user-tmpfiles-rules = runTest ./systemd-user-tmpfiles-rules.nix;

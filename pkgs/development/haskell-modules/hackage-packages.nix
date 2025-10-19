@@ -159675,7 +159675,6 @@ self: {
       ];
       description = "Concurrent PostgreSQL data consumers";
       license = lib.licenses.bsd3;
-      hydraPlatforms = lib.platforms.none;
     }
   ) { };
 
@@ -159713,7 +159712,6 @@ self: {
       ];
       description = "Prometheus metrics for the consumers library";
       license = lib.licenses.bsd3;
-      hydraPlatforms = lib.platforms.none;
     }
   ) { };
 
@@ -265220,7 +265218,7 @@ self: {
       license = lib.licenses.lgpl21Only;
       hydraPlatforms = lib.platforms.none;
     }
-  ) { inherit (pkgs) webkitgtk_4_0; };
+  ) { webkitgtk_4_0 = null; };
 
   gi-javascriptcore6 = callPackage (
     {
@@ -266172,7 +266170,7 @@ self: {
       badPlatforms = lib.platforms.darwin;
       hydraPlatforms = lib.platforms.none;
     }
-  ) { inherit (pkgs) webkitgtk_4_0; };
+  ) { webkitgtk_4_0 = null; };
 
   gi-webkit2webextension = callPackage (
     {
@@ -266232,7 +266230,7 @@ self: {
       hydraPlatforms = lib.platforms.none;
       broken = true;
     }
-  ) { inherit (pkgs) webkitgtk_4_0; };
+  ) { webkitgtk_4_0 = null; };
 
   gi-webkitwebprocessextension = callPackage (
     {
@@ -342693,8 +342691,6 @@ self: {
       ];
       description = "Haskell bindings to libpqtypes";
       license = lib.licenses.bsd3;
-      hydraPlatforms = lib.platforms.none;
-      broken = true;
     }
   ) { inherit (pkgs) libpq; };
 
@@ -342732,7 +342728,6 @@ self: {
       ];
       description = "Adaptation of the hpqtypes library for the effectful ecosystem";
       license = lib.licenses.bsd3;
-      hydraPlatforms = lib.platforms.none;
     }
   ) { };
 
@@ -342795,7 +342790,6 @@ self: {
       ];
       description = "Extra utilities for hpqtypes library";
       license = lib.licenses.bsd3;
-      hydraPlatforms = lib.platforms.none;
     }
   ) { };
 
@@ -400810,7 +400804,10 @@ self: {
       description = "Advanced keyboard remapping utility";
       license = lib.licenses.mit;
       mainProgram = "kmonad";
-      maintainers = [ lib.maintainers.slotThe ];
+      maintainers = [
+        lib.maintainers.auscyber
+        lib.maintainers.slotThe
+      ];
     }
   ) { };
 
@@ -426174,7 +426171,6 @@ self: {
       ];
       description = "Structured logging solution with multiple backends";
       license = lib.licenses.bsd3;
-      hydraPlatforms = lib.platforms.none;
     }
   ) { };
 
@@ -426471,7 +426467,6 @@ self: {
       ];
       description = "Structured logging solution (PostgreSQL back end)";
       license = lib.licenses.bsd3;
-      hydraPlatforms = lib.platforms.none;
     }
   ) { };
 
@@ -437637,8 +437632,6 @@ self: {
       ];
       description = "Fast and extensible bytestring builder";
       license = lib.licenses.bsd3;
-      hydraPlatforms = lib.platforms.none;
-      broken = true;
     }
   ) { };
 
@@ -672199,7 +672192,7 @@ self: {
       )
       {
         inherit (pkgs) gtk3;
-        inherit (pkgs) webkitgtk_4_0;
+        webkitgtk_4_0 = null;
       };
 
   tibetan-utils = callPackage (
@@ -719620,7 +719613,7 @@ self: {
       badPlatforms = lib.platforms.darwin;
       hydraPlatforms = lib.platforms.none;
     }
-  ) { inherit (pkgs) webkitgtk_4_0; };
+  ) { webkitgtk_4_0 = null; };
 
   webkitgtk3 = callPackage (
     {

@@ -8,10 +8,10 @@
   fetchFromGitHub,
   boost179,
   opencv,
-  libjpeg_turbo,
   python3Packages,
   openmpi,
   stdenv,
+  pkgs,
 }:
 
 let
@@ -197,19 +197,6 @@ let
       mivisionx = self.callPackage ./mivisionx {
         stdenv = origStdenv;
         opencv = opencv.override { enablePython = true; };
-        # Unfortunately, rocAL needs a custom libjpeg-turbo until further notice
-        # See: https://github.com/ROCm/MIVisionX/issues/1051
-        libjpeg_turbo = libjpeg_turbo.overrideAttrs {
-          version = "2.0.6.1";
-          src = fetchFromGitHub {
-            owner = "rrawther";
-            repo = "libjpeg-turbo";
-            rev = "640d7ee1917fcd3b6a5271aa6cf4576bccc7c5fb";
-            sha256 = "sha256-T52whJ7nZi8jerJaZtYInC2YDN0QM+9tUDqiNr6IsNY=";
-          };
-          # overwrite all patches, since patches for newer version do not apply
-          patches = [ ./0001-Compile-transupp.c-as-part-of-the-library.patch ];
-        };
       };
 
       mivisionx-hip = self.mivisionx.override {
@@ -251,6 +238,8 @@ let
       # See: https://rocm.docs.amd.com/en/docs-5.7.1/_images/image.004.png
       # See: https://rocm.docs.amd.com/en/docs-5.7.1/deploy/linux/os-native/package_manager_integration.html
       meta = with self; rec {
+        # eval all pkgsRocm release attrs with
+        # nix-eval-jobs --force-recurse pkgs/top-level/release.nix -I . --select "p: p.pkgsRocm" --no-instantiate
         release-attrPaths = (builtins.fromJSON (builtins.readFile ./release-attrPaths.json)).attrPaths;
         release-packagePlatforms =
           let
@@ -259,7 +248,11 @@ let
             ];
           in
           lib.foldl' (
-            acc: path: lib.recursiveUpdate acc (lib.setAttrByPath (lib.splitString "." path) platforms)
+            acc: path:
+            if lib.hasAttrByPath (lib.splitString "." path) pkgs then
+              lib.recursiveUpdate acc (lib.setAttrByPath (lib.splitString "." path) platforms)
+            else
+              acc
           ) { } self.meta.release-attrPaths;
 
         rocm-developer-tools = symlinkJoin {
